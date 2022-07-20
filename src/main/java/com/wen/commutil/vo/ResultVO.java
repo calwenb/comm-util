@@ -13,10 +13,9 @@ import java.io.Serializable;
  * @create 2022/7/18 17:07
  */
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Accessors(chain = true)
 public class ResultVO<T> implements Serializable {
     private Integer code;
     private T data;

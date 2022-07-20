@@ -3,7 +3,7 @@ package com.wen.commutil.interceptor;
 import com.alibaba.fastjson2.JSON;
 import com.wen.commutil.utils.LoggerUtil;
 import com.wen.commutil.utils.NullUtil;
-import com.wen.commutil.utils.ResultUtil;
+import com.wen.commutil.utils.BaseResultUtil;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ValueConstants;
 import org.springframework.web.method.HandlerMethod;
@@ -38,7 +38,7 @@ public class NormInterceptor implements HandlerInterceptor {
                 if (param.getType().equals(MultipartFile.class)) {
                     continue;
                 }
-                response.getWriter().println(JSON.toJSONString(ResultUtil.badRequest("Please fill in the required fields.")));
+                response.getWriter().println(JSON.toJSONString(BaseResultUtil.badRequest("Please fill in the required fields.")));
                 LoggerUtil.error("400错误: null" + "query:" + value + " 属性：" + param, NormInterceptor.class);
                 return false;
             }
